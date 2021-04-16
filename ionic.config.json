@@ -1,0 +1,8 @@
+{
+  "name": "stitch",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react",
+  "id": "64252693"
+}
