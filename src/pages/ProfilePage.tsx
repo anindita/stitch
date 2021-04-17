@@ -1,8 +1,9 @@
 import React from 'react';
-import {IonAvatar, IonItem, IonLabel, IonContent, IonTitle, IonBadge, IonIcon} from '@ionic/react';
+import {IonAvatar, IonItem, IonLabel, IonContent, IonTitle, IonBadge, IonIcon, IonPage} from '@ionic/react';
 import {mail, people, star} from "ionicons/icons";
 
 export const ProfilePage: React.FC = () => (
+    <IonPage>
     <IonContent>
         <IonItem>
             <IonAvatar slot="start">
@@ -28,6 +29,7 @@ export const ProfilePage: React.FC = () => (
             <IonBadge color="success" slot="end">200</IonBadge>
         </IonItem>
     </IonContent>
+    </IonPage>
 );
 
 export default ProfilePage

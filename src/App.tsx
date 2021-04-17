@@ -9,7 +9,7 @@ import {
   IonTabs,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import {chatbox, ellipse, person, square, star, triangle} from 'ionicons/icons';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 
@@ -34,6 +34,7 @@ import './theme/variables.css';
 
 import InfiniteScroll from "./pages/InfiniteScroll";
 import React from "react";
+import ProfilePage from "./pages/ProfilePage";
 
 const App: React.FC = () => (
     <IonApp>
@@ -47,7 +48,7 @@ const App: React.FC = () => (
               <Tab2 />
             </Route>
             <Route path="/tab3">
-              <Tab3 />
+              <ProfilePage />
             </Route>
             <Route exact path="/">
               <Redirect to="/tab1" />
@@ -55,16 +56,16 @@ const App: React.FC = () => (
           </IonRouterOutlet>
           <IonTabBar slot="bottom">
             <IonTabButton tab="tab1" href="/tab1">
-              <IonIcon icon={triangle} />
+              <IonIcon icon={star} />
               <IonLabel>Tailors</IonLabel>
             </IonTabButton>
             <IonTabButton tab="tab2" href="/tab2">
-              <IonIcon icon={ellipse} />
+              <IonIcon icon={chatbox} />
               <IonLabel>Chat</IonLabel>
             </IonTabButton>
             <IonTabButton tab="tab3" href="/tab3">
-              <IonIcon icon={square} />
-              <IonLabel>Tab 3</IonLabel>
+              <IonIcon icon={person} />
+              <IonLabel>Profile</IonLabel>
             </IonTabButton>
           </IonTabBar>
         </IonTabs>
