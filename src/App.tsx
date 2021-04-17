@@ -1,11 +1,6 @@
-import { Redirect, Route } from 'react-router-dom';
 import React from 'react';
-import { IonApp, IonLabel, IonList, IonItem, IonInput, IonToggle, IonRadio, IonCheckbox, IonItemSliding, IonItemOption, IonItemOptions, IonContent } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import { IonApp, IonLabel, IonList, IonItem, IonInput, IonToggle, IonRadio, IonCheckbox,
+  IonItemSliding, IonItemOption, IonItemOptions, IonContent } from '@ionic/react';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -26,9 +21,12 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import BasicSearchBar from "./pages/BasicSearchBar";
 
 const App: React.FC = () => (
   <IonApp>
+      {/*-- Search Bar --*/}
+      <BasicSearchBar> </BasicSearchBar>
     {/*-- List of Sliding Items --*/}
     <IonList>
       <IonItemSliding>
