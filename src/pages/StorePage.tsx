@@ -27,16 +27,18 @@ const items: Item[] = [{ src: '/assets/images/store1.jpg', text: 'One from my la
 export const StorePage: React.FC = () => (
     <IonPage>
         <IonHeader>
-            <IonToolbar class={"store-title"}>
-                <IonAvatar slot="start">
-                    <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"/>
-                </IonAvatar>
-                <IonTitle size="large" slot="start">Radhika's Boutique</IonTitle>
-            </IonToolbar>
+            <IonHeader>
+                <IonToolbar class={"scroll-title"}>
+                    <IonTitle>Radhika's Boutique</IonTitle>
+                    <IonAvatar slot="start">
+                        <img src="https://slowflowersjournal.com/wp-content/uploads/2017/04/IMG_0014-1024x1024.jpg" alt={""}/>
+                    </IonAvatar>
+                </IonToolbar>
+            </IonHeader>
         </IonHeader>
         <IonContent>
             <IonItem class={"store-description"}>
-                I am a Fashion Designer based in London, feel free to check out
+                I am a Fashion Student based in London, feel free to check out
                 some of my work below!
             </IonItem>
             <IonRow>

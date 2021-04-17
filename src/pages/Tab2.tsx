@@ -9,17 +9,24 @@ import {
     ChannelListTeam,
     MessageList,
     MessageTeam,
-    MessageInput,
+    MessageInput, MessageSimple,
 } from 'stream-chat-react';
 import {
-    IonPage,
+    IonAvatar,
+    IonContent, IonFooter,
+    IonHeader,
+    IonIcon,
+    IonPage, IonTitle, IonToolbar,
     useIonViewWillEnter,
 } from '@ionic/react';
 import { StreamChat } from 'stream-chat';
 import axios from 'axios';
 import Auth from './Auth';
+import './Tab2.css';
 
 import 'stream-chat-react/dist/css/index.css';
+import {flower} from "ionicons/icons";
+import ReactTextareaAutocomplete from "stream-chat-react/built/types/src/components/AutoCompleteTextarea/Textarea";
 
 let chatClient: any;
 
@@ -71,7 +78,7 @@ function Tab2() {
                 token
             );
 
-            const channel = chatClient.channel('messaging', 'General');
+            const channel = chatClient.channel('messaging', '1');
             await channel.watch();
 
             setChannel(channel);
@@ -83,25 +90,35 @@ function Tab2() {
     if (channel) {
         return (
             <IonPage>
-                <Chat client={chatClient} theme="messaging light">
-                    <ChannelList
-                        options={{
-                            state: true,
-                        }}
-                        filters={{
-                            type: 'messaging',
-                        }}
-                        List={ChannelListTeam}
-                    />
-                    <Channel channel={channel}>
-                        <Window>
-                            <ChannelHeader />
-                            <MessageList Message={MessageTeam} />
-                            <MessageInput focus />
-                        </Window>
-                        <Thread Message={MessageTeam} />
-                    </Channel>
-                </Chat>
+                <IonHeader>
+                    <IonToolbar class={"scroll-title"}>
+                        <IonTitle>Stitch</IonTitle>
+                        <IonAvatar slot="start">
+                            <img src="/assets/images/icon.png"  alt={""}/>
+                        </IonAvatar>
+                    </IonToolbar>
+                </IonHeader>
+                <IonContent>
+                    <Chat client={chatClient} >
+                        <ChannelList
+                            options={{
+                                state: true,
+                            }}
+                            filters={{
+                                type: 'messaging',
+                            }}
+                            List={ChannelListTeam}
+                        />
+                        <Channel channel={channel}>
+                            <Window>
+                                <MessageList Message={CustomMessage} />
+                                <MessageInput focus />
+                            </Window>
+                            <Thread Message={CustomMessage} />
+                        </Channel>
+                    </Chat>
+                </IonContent>
+                <IonFooter> </IonFooter>
             </IonPage>
         );
     }
@@ -119,6 +136,28 @@ function Tab2() {
             />
         </IonPage>
     );
+}
+
+const CustomMessage = (props: any) => {
+
+    if (!(props.message.text === '')) {
+        return (
+            <div>
+                <b style={{ marginRight: '4px', color:"#e0ac08"}}>{props.message.user.name}</b> {props.message.text}
+            </div>
+        )
+    } else {
+        return (
+            <div>
+                <div>
+                    <b style={{ marginRight: '4px', color:"#e0ac08"}}>{props.message.user.name}</b>
+                </div>
+                <div>
+                    <img src={props.message.attachments[0].image_url} alt="img" height={200} width={200} />
+                </div>
+            </div>
+        )
+    }
 }
 
 export default Tab2;

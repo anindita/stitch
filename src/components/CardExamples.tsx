@@ -13,7 +13,7 @@ export const CardExamples: React.FC = () => {
             <IonContent>
                 <IonCard>
                     <IonCardHeader>
-                        <IonCardTitle>Radhika's Boutique</IonCardTitle>
+                        <IonCardTitle>Radhika's Boutique & Repairs</IonCardTitle>
                         <IonItem>
                             <IonIcon icon={flower} slot="start" />
                             <IonLabel>1.2 miles</IonLabel>

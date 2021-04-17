@@ -12,36 +12,28 @@ import {
     IonCardTitle,
     IonItem,
     IonLabel,
-    IonCardContent, IonThumbnail, IonImg, IonAvatar
+    IonCardContent, IonThumbnail, IonImg, IonAvatar, IonCardSubtitle
 } from '@ionic/react';
 import React, {useState} from 'react';
 import './InfiniteScroll.css';
 
 const InfiniteScroll: React.FC = () => {
 
-    const [images, setImages] = useState<string[]>([]);
+    const [images, setImages] = useState<string[][]>([]);
 
     const [disableInfiniteScroll, setDisableInfiniteScroll] = useState<boolean>(false);
 
     async function fetchData() {
-        const url: string = 'https://dog.ceo/api/breeds/image/random/3';
+        const tailors = [["https://www.thecreativefolk.com/wp-content/uploads/2020/04/Yarn-Vs-Wool.jpg", "Sally's Knitwear", "Repairs Only"],
+            ["https://images.immediate.co.uk/production/volatile/sites/32/2019/08/Sewing-machine-tips-1d611b4.jpg?quality=90&resize=620,413", "Sew What?", "Repairs, Alterations and Upcycling"],
+            ["https://cdn.shopify.com/s/files/1/2447/5025/articles/Afghan-wedding-shawl-detail-35w2_1024x1024.jpg?v=1579278919", "Desi Alterations", "Alterations and Formal Attire"],
+            ["https://slowflowersjournal.com/wp-content/uploads/2017/04/IMG_0014-1024x1024.jpg", "Radhika's Boutique", "Repairs and Upcycling"],
+            ["https://cdn.shopify.com/s/files/1/0221/1571/3120/products/Knitted_Blanket_kit_Knit_One_kits_440x.jpg?v=1600696522", "Jodie's Patchworks", "Alterations, Upcycling and Masks"],
+            ["https://hips.hearstapps.com/ghk.h-cdn.co/assets/cm/15/11/640x540/54ff6adf88ead-peplum.jpg", "Upcycle Anything!", "Upcycling Only"],
+            ["https://i.pinimg.com/600x315/41/c8/c7/41c8c7291e9623e54b6e18e33480ad41.jpg", "Mend and Make Do", "Repairs Only", "Upholstery Only"]
+        ]
 
-        const res: Response = await fetch(url);
-        res
-            .json()
-            .then(async (res) => {
-                if (res && res.message && res.message.length > 0) {
-                    let message = res.message.map(function (k: any, i: string | number) {
-                        return [k, res.message[i]];
-                    });
-                    setImages([...images, ...message]);
-                    // If fewer than 10 doggos, disable infinite scroll
-                    setDisableInfiniteScroll(res.message.length < 3);
-                } else {
-                    setDisableInfiniteScroll(true);
-                }
-            })
-            .catch(err => console.error(err));
+        setImages([...images, ...tailors])
     }
 
     useIonViewWillEnter(async () => {
@@ -68,16 +60,15 @@ const InfiniteScroll: React.FC = () => {
                 {images.map((item: any, i: number) => {
                     return <IonCard key={`${i}`} routerLink="/user1/" class={"tailor-card"}>
                         <IonCardHeader>
-                            <IonCardTitle>{item[1]}</IonCardTitle>
                             <IonItem>
-                                <IonThumbnail slot="start">
+                                <IonLabel color={"#ffc409"}><h2>{item[1]}</h2><p>{(i+2*i+1)/10.0} miles</p></IonLabel>
+                                <IonThumbnail slot="start" style={{"--size": 20}}>
                                     <IonImg src={item[0]} />
                                 </IonThumbnail>
-                                <IonLabel>0.{i} miles</IonLabel>
                             </IonItem>
                         </IonCardHeader>
-                        <IonCardContent>
-                            We do repairs, adjustments...
+                        <IonCardContent color={"#ffc409"}>
+                            {item[2]}
                         </IonCardContent>
                     </IonCard>
                 })}
