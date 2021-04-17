@@ -4,11 +4,21 @@ import {
     IonPage,
     IonTitle,
     IonCard,
-    IonToolbar, useIonViewWillEnter,
-    IonInfiniteScroll, IonInfiniteScrollContent
+    IonToolbar,
+    useIonViewWillEnter,
+    IonInfiniteScroll,
+    IonInfiniteScrollContent,
+    IonCardHeader,
+    IonCardTitle,
+    IonItem,
+    IonIcon,
+    IonLabel,
+    IonButton,
+    IonCardContent, IonThumbnail, IonImg
 } from '@ionic/react';
 import React, {useState} from 'react';
 import './InfiniteScroll.css';
+import {flower} from "ionicons/icons";
 
 const InfiniteScroll: React.FC = () => {
 
@@ -46,13 +56,27 @@ const InfiniteScroll: React.FC = () => {
     return (
         <IonPage>
             <IonHeader>
-                <IonToolbar>
-                    <IonTitle>Tab One</IonTitle>
+                <IonToolbar color={"#8c8c8c"}>
+                    <IonTitle>Stitch</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
                 {items.map((item: string, i: number) => {
-                    return <IonCard key={`${i}`}><img src={item}/></IonCard>
+                    return <IonCard key={`${i}`}>
+                        <IonCardHeader>
+                            <IonCardTitle>Radhika's Boutique</IonCardTitle>
+                            <IonItem>
+                                <IonThumbnail slot="start">
+                                    <IonImg src={item} />
+                                </IonThumbnail>
+                                <IonLabel>1.2 miles</IonLabel>
+                                <IonButton fill="outline" slot="end">View</IonButton>
+                            </IonItem>
+                        </IonCardHeader>
+                        <IonCardContent>
+                            We do repairs, adjustments...
+                        </IonCardContent>
+                    </IonCard>
                 })}
 
                 <IonInfiniteScroll threshold="100px" disabled={disableInfiniteScroll}
