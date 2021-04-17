@@ -21,12 +21,17 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import BasicSearchBar from "./pages/BasicSearchBar";
+import BasicSearchBar from "./components/BasicSearchBar";
+import CardExamples from "./components/CardExamples";
 
 const App: React.FC = () => (
   <IonApp>
       {/*-- Search Bar --*/}
       <BasicSearchBar> </BasicSearchBar>
+
+      {/*-- User Card --*/}
+      <CardExamples> </CardExamples>
+
     {/*-- List of Sliding Items --*/}
     <IonList>
       <IonItemSliding>
