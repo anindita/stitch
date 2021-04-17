@@ -12,13 +12,10 @@ import {
     IonCardTitle,
     IonItem,
     IonLabel,
-    IonButton,
-    IonCardContent, IonThumbnail, IonImg, IonRouterOutlet
+    IonCardContent, IonThumbnail, IonImg, IonAvatar
 } from '@ionic/react';
 import React, {useState} from 'react';
 import './InfiniteScroll.css';
-import {Route} from "react-router-dom";
-import ProfilePage from "./ProfilePage";
 
 const InfiniteScroll: React.FC = () => {
 
@@ -27,7 +24,7 @@ const InfiniteScroll: React.FC = () => {
     const [disableInfiniteScroll, setDisableInfiniteScroll] = useState<boolean>(false);
 
     async function fetchData() {
-        const url: string = 'https://dog.ceo/api/breeds/image/random/10';
+        const url: string = 'https://dog.ceo/api/breeds/image/random/3';
 
         const res: Response = await fetch(url);
         res
@@ -39,7 +36,7 @@ const InfiniteScroll: React.FC = () => {
                     });
                     setImages([...images, ...message]);
                     // If fewer than 10 doggos, disable infinite scroll
-                    setDisableInfiniteScroll(res.message.length < 10);
+                    setDisableInfiniteScroll(res.message.length < 3);
                 } else {
                     setDisableInfiniteScroll(true);
                 }
@@ -60,20 +57,23 @@ const InfiniteScroll: React.FC = () => {
     return (
         <IonPage>
             <IonHeader>
-                <IonToolbar color={"#8c8c8c"}>
+                <IonToolbar class={"scroll-title"}>
                     <IonTitle>Stitch</IonTitle>
+                    <IonAvatar slot="start">
+                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
+                    </IonAvatar>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
                 {images.map((item: any, i: number) => {
-                    return <IonCard key={`${i}`} routerLink="/user1/">
+                    return <IonCard key={`${i}`} routerLink="/user1/" class={"tailor-card"}>
                         <IonCardHeader>
                             <IonCardTitle>{item[1]}</IonCardTitle>
                             <IonItem>
                                 <IonThumbnail slot="start">
                                     <IonImg src={item[0]} />
                                 </IonThumbnail>
-                                <IonLabel>1.2 miles</IonLabel>
+                                <IonLabel>0.{i} miles</IonLabel>
                             </IonItem>
                         </IonCardHeader>
                         <IonCardContent>
@@ -85,7 +85,7 @@ const InfiniteScroll: React.FC = () => {
                 <IonInfiniteScroll threshold="100px" disabled={disableInfiniteScroll}
                                    onIonInfinite={(e: CustomEvent<void>) => searchNext(e)}>
                     <IonInfiniteScrollContent
-                        loadingText="Loading more good doggos...">
+                        loadingText="Loading more good tailors near you...">
                     </IonInfiniteScrollContent>
                 </IonInfiniteScroll>
             </IonContent>

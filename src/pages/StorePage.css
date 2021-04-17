@@ -1,0 +1,13 @@
+.store-title {
+    --background: #ffd534;
+    --padding-bottom: 10px;
+    --padding-top: 10px;
+    --padding-start: 5px;
+    --padding-end: 5px;
+}
+
+.store-card {
+    border-top: 3px solid #ffd534;
+    border-bottom: 3px solid #ffd534;
+    border-radius: 5px;
+}

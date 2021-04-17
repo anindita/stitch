@@ -2,3 +2,16 @@
     max-height: 35vh;
     overflow: hidden;
 }
+
+.tailor-card {
+    border-top: 3px solid #ffd534;
+    border-radius: 20px;
+}
+
+.scroll-title {
+    --background: #ffd534;
+    --padding-bottom: 10px;
+    --padding-top: 10px;
+    --padding-start: 5px;
+    --padding-end: 5px;
+}

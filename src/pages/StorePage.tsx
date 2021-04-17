@@ -1,9 +1,7 @@
 import React from 'react';
 import {
-    IonGrid,
     IonRow,
     IonCol,
-    IonList,
     IonContent,
     IonPage,
     IonItem,
@@ -11,9 +9,10 @@ import {
     IonTitle,
     IonThumbnail,
     IonImg,
-    IonLabel,
-    IonCard, IonCardHeader, IonCardTitle, IonIcon, IonButton, IonCardContent
+    IonToolbar,
+    IonCard, IonCardHeader, IonCardContent, IonHeader
 } from '@ionic/react';
+import './StorePage.css';
 
 type Item = {
     src: string;
@@ -22,13 +21,15 @@ type Item = {
 const items: Item[] = [{ src: 'http://placekitten.com/g/200/300', text: 'a picture of a cat' }]
 export const StorePage: React.FC = () => (
     <IonPage>
-        <IonContent>
-            <IonItem>
+        <IonHeader>
+            <IonToolbar class={"store-title"}>
                 <IonAvatar slot="start">
                     <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"/>
                 </IonAvatar>
                 <IonTitle size="large" slot="start">Radhika's Boutique</IonTitle>
-            </IonItem>
+            </IonToolbar>
+        </IonHeader>
+        <IonContent>
             <IonItem>
                 Welcome to my page! I am a Fashion Designer in London, check out my work below.
             </IonItem>
@@ -56,7 +57,7 @@ function getCatImage() {
     return <>
         {items.map((image, i) => (
             <IonItem key={i}>
-                <IonCard>
+                <IonCard class={"store-card"}>
                     <IonCardHeader>
                         <IonThumbnail>
                             <IonImg src={image.src}/>
