@@ -11,3 +11,13 @@
     border-bottom: 3px solid #ffd534;
     border-radius: 5px;
 }
+
+.store-description {
+    --padding-bottom: 10px;
+    --padding-top: 40px;
+    --padding-start: 20px;
+}
+
+.store-pic {
+    --size: 100px
+}

@@ -10,15 +10,20 @@ import {
     IonThumbnail,
     IonImg,
     IonToolbar,
-    IonCard, IonCardHeader, IonCardContent, IonHeader
+    IonCard, IonCardHeader, IonCardContent, IonHeader, IonIcon
 } from '@ionic/react';
 import './StorePage.css';
+import {flower, heart} from "ionicons/icons";
 
 type Item = {
     src: string;
     text: string;
 };
-const items: Item[] = [{ src: 'http://placekitten.com/g/200/300', text: 'a picture of a cat' }]
+const items: Item[] = [{ src: '/assets/images/store1.jpg', text: 'One from my latest upscaled dress collection!' },
+                        { src: '/assets/images/store2.jpg', text: 'Custom shorts for the summer' },
+                        { src: '/assets/images/store3.jpg', text: 'All of my tools :)' },
+                         { src: '/assets/images/store4.jpg', text: 'Hats and scarfs revamped for winter' }]
+
 export const StorePage: React.FC = () => (
     <IonPage>
         <IonHeader>
@@ -30,45 +35,43 @@ export const StorePage: React.FC = () => (
             </IonToolbar>
         </IonHeader>
         <IonContent>
-            <IonItem>
-                Welcome to my page! I am a Fashion Designer in London, check out my work below.
+            <IonItem class={"store-description"}>
+                I am a Fashion Designer based in London, feel free to check out
+                some of my work below!
             </IonItem>
             <IonRow>
                 <IonCol>
-                    {getCatImage()}
+                    {getCatImage(items[0])}
                 </IonCol>
                 <IonCol>
-                    {getCatImage()}
+                    {getCatImage(items[1])}
                 </IonCol>
             </IonRow>
             <IonRow>
                 <IonCol>
-                    {getCatImage()}
+                    {getCatImage(items[2])}
                 </IonCol>
                 <IonCol>
-                    {getCatImage()}
+                    {getCatImage(items[3])}
                 </IonCol>
             </IonRow>
         </IonContent>
     </IonPage>
 );
 
-function getCatImage() {
+function getCatImage(image: Item) {
     return <>
-        {items.map((image, i) => (
-            <IonItem key={i}>
-                <IonCard class={"store-card"}>
-                    <IonCardHeader>
-                        <IonThumbnail>
-                            <IonImg src={image.src}/>
-                        </IonThumbnail>
-                    </IonCardHeader>
-                    <IonCardContent>
-                        {image.text}
-                    </IonCardContent>
-                </IonCard>
-            </IonItem>
-        ))}
+        <IonCard class={"store-card"}>
+            <IonCardHeader>
+                <IonThumbnail class={"store-pic"}>
+                    <IonImg src={image.src}/>
+                </IonThumbnail>
+            </IonCardHeader>
+            <IonCardContent>
+                {/*<IonIcon icon={heart}> slot={"start"} </IonIcon>*/}
+                {image.text}
+            </IonCardContent>
+        </IonCard>
     </>;
 }
 
