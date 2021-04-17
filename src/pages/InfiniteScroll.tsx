@@ -11,18 +11,16 @@ import {
     IonCardHeader,
     IonCardTitle,
     IonItem,
-    IonIcon,
     IonLabel,
     IonButton,
     IonCardContent, IonThumbnail, IonImg
 } from '@ionic/react';
 import React, {useState} from 'react';
 import './InfiniteScroll.css';
-import {flower} from "ionicons/icons";
 
 const InfiniteScroll: React.FC = () => {
 
-    const [items, setItems] = useState<string[]>([]);
+    const [images, setImages] = useState<string[]>([]);
 
     const [disableInfiniteScroll, setDisableInfiniteScroll] = useState<boolean>(false);
 
@@ -34,7 +32,11 @@ const InfiniteScroll: React.FC = () => {
             .json()
             .then(async (res) => {
                 if (res && res.message && res.message.length > 0) {
-                    setItems([...items, ...res.message]);
+                    let message = res.message.map(function (k: any, i: string | number) {
+                        return [k, res.message[i]];
+                    });
+                    setImages([...images, ...message]);
+                    // If fewer than 10 doggos, disable infinite scroll
                     setDisableInfiniteScroll(res.message.length < 10);
                 } else {
                     setDisableInfiniteScroll(true);
@@ -61,16 +63,15 @@ const InfiniteScroll: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-                {items.map((item: string, i: number) => {
+                {images.map((item: any, i: number) => {
                     return <IonCard key={`${i}`}>
                         <IonCardHeader>
-                            <IonCardTitle>Radhika's Boutique</IonCardTitle>
+                            <IonCardTitle>{item[1]}</IonCardTitle>
                             <IonItem>
                                 <IonThumbnail slot="start">
-                                    <IonImg src={item} />
+                                    <IonImg src={item[0]} />
                                 </IonThumbnail>
                                 <IonLabel>1.2 miles</IonLabel>
-                                <IonButton fill="outline" slot="end">View</IonButton>
                             </IonItem>
                         </IonCardHeader>
                         <IonCardContent>
