@@ -13,10 +13,12 @@ import {
     IonItem,
     IonLabel,
     IonButton,
-    IonCardContent, IonThumbnail, IonImg
+    IonCardContent, IonThumbnail, IonImg, IonRouterOutlet
 } from '@ionic/react';
 import React, {useState} from 'react';
 import './InfiniteScroll.css';
+import {Route} from "react-router-dom";
+import ProfilePage from "./ProfilePage";
 
 const InfiniteScroll: React.FC = () => {
 
@@ -64,7 +66,7 @@ const InfiniteScroll: React.FC = () => {
             </IonHeader>
             <IonContent>
                 {images.map((item: any, i: number) => {
-                    return <IonCard key={`${i}`}>
+                    return <IonCard key={`${i}`} routerLink="/user1/">
                         <IonCardHeader>
                             <IonCardTitle>{item[1]}</IonCardTitle>
                             <IonItem>
