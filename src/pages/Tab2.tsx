@@ -94,7 +94,7 @@ function Tab2() {
                     <IonToolbar class={"scroll-title"}>
                         <IonTitle>Stitch</IonTitle>
                         <IonAvatar slot="start">
-                            <img src="/assets/images/icon.png"  alt={""}/>
+                            <img src="public/assets/images/demoshop.jpeg"  alt={""}/>
                         </IonAvatar>
                     </IonToolbar>
                 </IonHeader>
@@ -144,13 +144,23 @@ const CustomMessage = (props: any) => {
         if (props.message.user.name === 'Radhika') {
             return (
                 <div>
-                    <b style={{marginRight: '4px', color: "#e0ac08"}}>{props.message.user.name}</b> {props.message.text}
+                <div>
+                    <b style={{marginRight: '4px', color: "#e0ac08"}}>{props.message.user.name}</b>
+                </div>
+                <div>
+                        {props.message.text} 
+                    </div>
                 </div>
             )
         } else {
             return (
-                <div className="rightSideDiv">
-                    {props.message.text} 
+                <div>
+                    <div className="rightSideDiv">
+                        <b style={{marginRight: '4px'}}>{props.message.user.name}</b>
+                    </div>
+                    <div className="rightSideDiv">
+                        {props.message.text} 
+                    </div>
                 </div>
             )
         }
@@ -158,7 +168,7 @@ const CustomMessage = (props: any) => {
         return (
             <div>
                 <div className="rightSideDiv">
-                    <b style={{ marginRight: '4px'}}>{"You"}</b>
+                    <b style={{ marginRight: '4px'}}>{props.message.user.name}</b>
                 </div>
                 <div className="rightSideDiv">
                     <img src={props.message.attachments[0].image_url} alt="img" height={200} width={200} />
