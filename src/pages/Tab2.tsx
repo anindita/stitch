@@ -78,7 +78,7 @@ function Tab2() {
                 token
             );
 
-            const channel = chatClient.channel('messaging', '1');
+            const channel = chatClient.channel('messaging', '2002');
             await channel.watch();
 
             setChannel(channel);
@@ -150,17 +150,17 @@ const CustomMessage = (props: any) => {
         } else {
             return (
                 <div className="rightSideDiv">
-                        {props.message.text} 
+                    {props.message.text} 
                 </div>
             )
         }
     } else {
         return (
             <div>
-                <div>
-                    <b style={{ marginRight: '4px', color:"#e0ac08"}}>{props.message.user.name}</b>
+                <div className="rightSideDiv">
+                    <b style={{ marginRight: '4px'}}>{"You"}</b>
                 </div>
-                <div>
+                <div className="rightSideDiv">
                     <img src={props.message.attachments[0].image_url} alt="img" height={200} width={200} />
                 </div>
             </div>
