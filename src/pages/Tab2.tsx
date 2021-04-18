@@ -105,7 +105,7 @@ function Tab2() {
                                 state: true,
                             }}
                             filters={{
-                                type: 'messaging',
+                                type: 'messaging'
                             }}
                             List={ChannelListTeam}
                         />
@@ -149,8 +149,8 @@ const CustomMessage = (props: any) => {
             )
         } else {
             return (
-                <div>
-                    <b style={{marginRight: '4px'}}>{props.message.user.name}</b> {props.message.text}
+                <div className="rightSideDiv">
+                        {props.message.text} 
                 </div>
             )
         }

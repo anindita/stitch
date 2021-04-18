@@ -1,3 +1,8 @@
+.rightSideDiv {
+    display: flex;
+  justify-content: flex-end;
+  }
+
 .str-chat__avatar--fallback {
     background-color: #2dd36f !important;
 }
