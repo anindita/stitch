@@ -25,7 +25,7 @@ import {
 } from '@ionic/react';
 import React, {useState} from 'react';
 import './InfiniteScroll.css';
-import {send} from "ionicons/icons";
+import {send, star} from "ionicons/icons";
 
 const InfiniteScroll: React.FC = () => {
 
@@ -34,13 +34,13 @@ const InfiniteScroll: React.FC = () => {
     const [disableInfiniteScroll, setDisableInfiniteScroll] = useState<boolean>(false);
 
     async function fetchData() {
-        const tailors = [["https://www.thecreativefolk.com/wp-content/uploads/2020/04/Yarn-Vs-Wool.jpg", "Sally's Knitwear", "Repairs Only"],
-            ["https://images.immediate.co.uk/production/volatile/sites/32/2019/08/Sewing-machine-tips-1d611b4.jpg?quality=90&resize=620,413", "Sew What?", "Repairs, Alterations and Upcycling"],
-            ["https://cdn.shopify.com/s/files/1/2447/5025/articles/Afghan-wedding-shawl-detail-35w2_1024x1024.jpg?v=1579278919", "Desi Alterations", "Alterations and Formal Attire"],
-            ["https://slowflowersjournal.com/wp-content/uploads/2017/04/IMG_0014-1024x1024.jpg", "Radhika's Boutique", "Repairs and Upcycling"],
-            ["https://cdn.shopify.com/s/files/1/0221/1571/3120/products/Knitted_Blanket_kit_Knit_One_kits_440x.jpg?v=1600696522", "Jodie's Patchworks", "Alterations, Upcycling and Masks"],
-            ["https://hips.hearstapps.com/ghk.h-cdn.co/assets/cm/15/11/640x540/54ff6adf88ead-peplum.jpg", "Upcycle Anything!", "Upcycling Only"],
-            ["https://i.pinimg.com/600x315/41/c8/c7/41c8c7291e9623e54b6e18e33480ad41.jpg", "Mend and Make Do", "Repairs Only", "Upholstery Only"]
+        const tailors = [["https://www.thecreativefolk.com/wp-content/uploads/2020/04/Yarn-Vs-Wool.jpg", "Sally's Knitwear", "Repairs Only", "4.5"],
+            ["https://images.immediate.co.uk/production/volatile/sites/32/2019/08/Sewing-machine-tips-1d611b4.jpg?quality=90&resize=620,413", "Sew What?", "Repairs, Alterations and Upcycling", "3.6"],
+            ["https://cdn.shopify.com/s/files/1/2447/5025/articles/Afghan-wedding-shawl-detail-35w2_1024x1024.jpg?v=1579278919", "Desi Alterations", "Alterations and Formal Attire", "4.1"],
+            ["https://slowflowersjournal.com/wp-content/uploads/2017/04/IMG_0014-1024x1024.jpg", "Radhika's Boutique", "Repairs and Upcycling", "4.9"],
+            ["https://cdn.shopify.com/s/files/1/0221/1571/3120/products/Knitted_Blanket_kit_Knit_One_kits_440x.jpg?v=1600696522", "Jodie's Patchworks", "Alterations, Upcycling and Masks", "3.8"],
+            ["https://hips.hearstapps.com/ghk.h-cdn.co/assets/cm/15/11/640x540/54ff6adf88ead-peplum.jpg", "Upcycle Anything!", "Upcycling Only", "4.7"],
+            ["https://i.pinimg.com/600x315/41/c8/c7/41c8c7291e9623e54b6e18e33480ad41.jpg", "Mend and Make Do", "Repairs Only", "Upholstery Only", "3.2"]
         ]
 
         setImages([...images, ...tailors])
@@ -79,16 +79,14 @@ const InfiniteScroll: React.FC = () => {
             <IonContent>
                 {images.map((item: any, i: number) => {
                     return <IonCard key={`${i}`} routerLink="/user1/" class={"tailor-card"}>
+                        <IonImg src={item[0]} />
                         <IonCardHeader>
-                            <IonItem>
-                                <IonLabel color={"#ffc409"}><h2>{item[1]}</h2><p>{(i+2*i+1)/10.0} miles</p></IonLabel>
-                                <IonThumbnail slot="start" style={{"--size": 20}}>
-                                    <IonImg src={item[0]} />
-                                </IonThumbnail>
-                            </IonItem>
+                            <IonCardTitle color={"#ffc409"}>{item[1]}</IonCardTitle>
+                            <IonCardSubtitle>{(i+2*i+1)/10.0} miles</IonCardSubtitle>
                         </IonCardHeader>
-                        <IonCardContent color={"#ffc409"}>
-                            {item[2]}
+                        <IonCardContent style={{"--padding-bottom": "10px"}}>
+                            <IonIcon icon={star} slot={"start"} color="primary"> </IonIcon> {item[3]}
+                            <p>{item[2]}</p>
                         </IonCardContent>
                     </IonCard>
                 })}
