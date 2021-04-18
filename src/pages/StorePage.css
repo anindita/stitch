@@ -12,9 +12,16 @@
     border-radius: 5px;
 }
 
+.store-card-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .store-description {
     --padding-bottom: 10px;
-    --padding-top: 40px;
+    --padding-top: 20px;
     --padding-start: 20px;
 }
 

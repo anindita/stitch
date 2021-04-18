@@ -13,7 +13,7 @@ import {
     IonCard, IonCardHeader, IonCardContent, IonHeader, IonIcon
 } from '@ionic/react';
 import './StorePage.css';
-import {send, heart} from "ionicons/icons";
+import {send, heart, mail, heartDislike} from "ionicons/icons";
 
 type Item = {
     src: string;
@@ -42,35 +42,34 @@ export const StorePage: React.FC = () => (
             </IonItem>
             <IonRow>
                 <IonCol>
-                    {getCatImage(items[0])}
+                    {getPostImage(items[0])}
                 </IonCol>
                 <IonCol>
-                    {getCatImage(items[1])}
+                    {getPostImage(items[1])}
                 </IonCol>
             </IonRow>
             <IonRow>
                 <IonCol>
-                    {getCatImage(items[2])}
+                    {getPostImage(items[2])}
                 </IonCol>
                 <IonCol>
-                    {getCatImage(items[3])}
+                    {getPostImage(items[3])}
                 </IonCol>
             </IonRow>
         </IonContent>
     </IonPage>
 );
 
-function getCatImage(image: Item) {
+function getPostImage(image: Item) {
     return <>
         <IonCard class={"store-card"}>
-            <IonCardHeader>
+            <IonCardHeader class={"store-card-content"}>
                 <IonThumbnail class={"store-pic"}>
                     <IonImg src={image.src}/>
                 </IonThumbnail>
             </IonCardHeader>
-            <IonCardContent>
+            <IonCardContent class={"store-card-content"}>
                 {image.text}
-                {/*<IonIcon style={{"--margin-left": "100px"}} icon={heart} slot={"end"}> </IonIcon>*/}
             </IonCardContent>
         </IonCard>
     </>;
