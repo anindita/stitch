@@ -13,7 +13,7 @@ import {
     IonCard, IonCardHeader, IonCardContent, IonHeader, IonIcon
 } from '@ionic/react';
 import './StorePage.css';
-import {flower, heart} from "ionicons/icons";
+import {flower, heart, send, sendOutline, star} from "ionicons/icons";
 
 type Item = {
     src: string;
@@ -27,14 +27,13 @@ const items: Item[] = [{ src: '/assets/images/store1.jpg', text: 'One from my la
 export const StorePage: React.FC = () => (
     <IonPage>
         <IonHeader>
-            <IonHeader>
-                <IonToolbar class={"scroll-title"}>
-                    <IonTitle>Radhika's Boutique</IonTitle>
-                    <IonAvatar slot="start">
-                        <img src="https://slowflowersjournal.com/wp-content/uploads/2017/04/IMG_0014-1024x1024.jpg" alt={""}/>
-                    </IonAvatar>
-                </IonToolbar>
-            </IonHeader>
+            <IonToolbar class={"scroll-title"}>
+                <IonTitle>Radhika's Boutique</IonTitle>
+                <IonAvatar slot="start">
+                    <img src="https://slowflowersjournal.com/wp-content/uploads/2017/04/IMG_0014-1024x1024.jpg" alt={""}/>
+                </IonAvatar>
+                <IonIcon style={{"--margin-right": "10px"}} slot="end" icon={send} color={"black"}> </IonIcon>
+            </IonToolbar>
         </IonHeader>
         <IonContent>
             <IonItem class={"store-description"}>

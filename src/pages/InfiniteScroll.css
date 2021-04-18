@@ -15,3 +15,13 @@
     --padding-start: 5px;
     --padding-end: 5px;
 }
+
+.filter {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: #ffc409;
+}

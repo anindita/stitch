@@ -12,10 +12,21 @@ import {
     IonCardTitle,
     IonItem,
     IonLabel,
-    IonCardContent, IonThumbnail, IonImg, IonAvatar, IonCardSubtitle
+    IonCardContent,
+    IonThumbnail,
+    IonImg,
+    IonAvatar,
+    IonCardSubtitle,
+    IonSearchbar,
+    IonIcon,
+    IonButtons,
+    IonButton,
+    IonRow, IonCol, IonGrid
 } from '@ionic/react';
 import React, {useState} from 'react';
 import './InfiniteScroll.css';
+import BasicSearchBar from "../components/BasicSearchBar";
+import {flower} from "ionicons/icons";
 
 const InfiniteScroll: React.FC = () => {
 
@@ -55,6 +66,18 @@ const InfiniteScroll: React.FC = () => {
                         <img src="/assets/images/icon.png"  alt={""}/>
                     </IonAvatar>
                 </IonToolbar>
+            </IonHeader>
+            <IonHeader>
+                <IonGrid>
+                    <IonRow>
+                        <IonCol size={"11"}>
+                            <IonSearchbar placeholder={"Filter by service"}> </IonSearchbar>
+                        </IonCol>
+                        <IonCol>
+                            <IonIcon class={"filter"} name={"menu-outline"} size={"20"} color={"#ffc409"}> </IonIcon>
+                        </IonCol>
+                    </IonRow>
+                </IonGrid>
             </IonHeader>
             <IonContent>
                 {images.map((item: any, i: number) => {

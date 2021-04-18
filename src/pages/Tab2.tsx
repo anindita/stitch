@@ -141,11 +141,19 @@ function Tab2() {
 const CustomMessage = (props: any) => {
 
     if (!(props.message.text === '')) {
-        return (
-            <div>
-                <b style={{ marginRight: '4px', color:"#e0ac08"}}>{props.message.user.name}</b> {props.message.text}
-            </div>
-        )
+        if (props.message.user.name === 'Radhika') {
+            return (
+                <div>
+                    <b style={{marginRight: '4px', color: "#e0ac08"}}>{props.message.user.name}</b> {props.message.text}
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <b style={{marginRight: '4px'}}>{props.message.user.name}</b> {props.message.text}
+                </div>
+            )
+        }
     } else {
         return (
             <div>

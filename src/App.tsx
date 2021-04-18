@@ -65,7 +65,7 @@ const App: React.FC = () => (
             </IonTabButton>
             <IonTabButton tab="tab2" href="/tab2">
               <IonIcon icon={chatbox} />
-              <IonLabel>Chat</IonLabel>
+              <IonLabel>Chats</IonLabel>
             </IonTabButton>
             <IonTabButton tab="tab3" href="/tab3">
               <IonIcon icon={person} />
