@@ -26,7 +26,7 @@ const items: Item[] = [{ src: '/assets/images/store1.jpg', text: 'One from my la
 
 export const StorePage: React.FC = () => (
     <IonPage>
-        <IonHeader>
+        <IonHeader className={"ion-no-border"}>
             <IonToolbar class={"scroll-title"}>
                 <IonTitle>Radhika's Boutique</IonTitle>
                 <IonAvatar slot="start">
@@ -69,8 +69,8 @@ function getCatImage(image: Item) {
                 </IonThumbnail>
             </IonCardHeader>
             <IonCardContent>
-                <IonIcon icon={heart}> </IonIcon>
                 {image.text}
+                {/*<IonIcon style={{"--margin-left": "100px"}} icon={heart} slot={"end"}> </IonIcon>*/}
             </IonCardContent>
         </IonCard>
     </>;

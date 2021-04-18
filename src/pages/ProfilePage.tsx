@@ -17,7 +17,7 @@ import './ProfilePage.css';
 
 export const ProfilePage: React.FC = () => (
     <IonPage>
-        <IonHeader>
+        <IonHeader className={"ion-no-border"}>
             <IonToolbar class={"profile-title"}>
                 <IonAvatar slot="start">
                     <img src="/assets/images/person.png"  alt={""}/>

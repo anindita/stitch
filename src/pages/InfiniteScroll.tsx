@@ -59,15 +59,13 @@ const InfiniteScroll: React.FC = () => {
 
     return (
         <IonPage>
-            <IonHeader>
+            <IonHeader className={"ion-no-border"}>
                 <IonToolbar class={"scroll-title"}>
                     <IonThumbnail class={"logo-image"} slot="start">
                         <img src="/assets/icon/logo.png"  alt={""}/>
                     </IonThumbnail>
                     <IonIcon style={{"--margin-right": "10px"}} slot="end" icon={send} > </IonIcon>
                 </IonToolbar>
-            </IonHeader>
-            <IonHeader>
                 <IonGrid>
                     <IonRow>
                         <IonCol size={"11"}>
