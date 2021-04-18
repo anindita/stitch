@@ -9,9 +9,9 @@ import {
     IonBadge,
     IonIcon,
     IonPage,
-    IonHeader, IonThumbnail
+    IonHeader
 } from '@ionic/react';
-import {mail, people, send, settings, star} from "ionicons/icons";
+import {mail, people, settings, star} from "ionicons/icons";
 
 import './ProfilePage.css';
 
@@ -22,7 +22,7 @@ export const ProfilePage: React.FC = () => (
                 <IonAvatar slot="start">
                     <img src="/assets/images/person.png"  alt={""}/>
                 </IonAvatar>
-                <IonTitle slot="start" >Rasika Navarange</IonTitle>
+                <IonTitle slot="start" >Andy Ghosh</IonTitle>
             </IonToolbar>
         </IonHeader>
         <IonContent>
@@ -50,7 +50,6 @@ export const ProfilePage: React.FC = () => (
             <IonItem class={"profile-item"}>
                 <IonIcon icon={settings} color="tertiary" slot="start" />
                 <IonLabel>Settings</IonLabel>
-                {/*<IonBadge class={"profile-badge"} color="tertiary" slot="end">2</IonBadge>*/}
             </IonItem>
         </IonContent>
     </IonPage>
