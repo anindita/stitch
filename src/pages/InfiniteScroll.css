@@ -9,7 +9,7 @@
 }
 
 .scroll-title {
-    --background: #ffd534;
+    --background: white;
     --padding-bottom: 10px;
     --padding-top: 10px;
     --padding-start: 5px;
@@ -25,3 +25,8 @@
     transform: translate(-50%, -50%);
     color: #ffc409;
 }
+
+.logo-image {
+    --size: 50pt
+}
+

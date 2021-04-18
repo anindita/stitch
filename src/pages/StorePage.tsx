@@ -13,7 +13,7 @@ import {
     IonCard, IonCardHeader, IonCardContent, IonHeader, IonIcon
 } from '@ionic/react';
 import './StorePage.css';
-import {flower, heart, send, sendOutline, star} from "ionicons/icons";
+import {send, heart} from "ionicons/icons";
 
 type Item = {
     src: string;
@@ -32,7 +32,7 @@ export const StorePage: React.FC = () => (
                 <IonAvatar slot="start">
                     <img src="https://slowflowersjournal.com/wp-content/uploads/2017/04/IMG_0014-1024x1024.jpg" alt={""}/>
                 </IonAvatar>
-                <IonIcon style={{"--margin-right": "10px"}} slot="end" icon={send} color={"black"}> </IonIcon>
+                <IonIcon style={{"--margin-right": "10px"}} slot="end" icon={send} color={"black"} > </IonIcon>
             </IonToolbar>
         </IonHeader>
         <IonContent>
@@ -69,7 +69,7 @@ function getCatImage(image: Item) {
                 </IonThumbnail>
             </IonCardHeader>
             <IonCardContent>
-                {/*<IonIcon icon={heart}> slot={"start"} </IonIcon>*/}
+                <IonIcon icon={heart}> </IonIcon>
                 {image.text}
             </IonCardContent>
         </IonCard>
