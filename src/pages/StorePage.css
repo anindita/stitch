@@ -1,9 +1,8 @@
 .store-title {
-    --background: #ffd534;
-    --padding-bottom: 10px;
-    --padding-top: 10px;
-    --padding-start: 5px;
-    --padding-end: 5px;
+    --background: white;
+    --padding-top: 20px;
+    --padding-start: 20px;
+    --padding-end: 20px;
 }
 
 .store-card {
@@ -20,9 +19,10 @@
 }
 
 .store-description {
-    --padding-bottom: 10px;
+    --padding-bottom: 20px;
     --padding-top: 20px;
     --padding-start: 20px;
+    --inner-padding-bottom: 20px;
 }
 
 .store-pic {

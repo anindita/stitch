@@ -25,8 +25,7 @@ import {
 } from '@ionic/react';
 import React, {useState} from 'react';
 import './InfiniteScroll.css';
-import BasicSearchBar from "../components/BasicSearchBar";
-import {flower, send} from "ionicons/icons";
+import {send} from "ionicons/icons";
 
 const InfiniteScroll: React.FC = () => {
 
@@ -64,7 +63,7 @@ const InfiniteScroll: React.FC = () => {
                     <IonThumbnail class={"logo-image"} slot="start">
                         <img src="/assets/icon/logo.png"  alt={""}/>
                     </IonThumbnail>
-                    <IonIcon style={{"--margin-right": "10px"}} slot="end" icon={send} > </IonIcon>
+                    <IonIcon style={{"--margin-right": "10px"}} slot="end" icon={send}> </IonIcon>
                 </IonToolbar>
                 <IonGrid>
                     <IonRow>
@@ -72,7 +71,7 @@ const InfiniteScroll: React.FC = () => {
                             <IonSearchbar placeholder={"Filter by service"}> </IonSearchbar>
                         </IonCol>
                         <IonCol>
-                            <IonIcon class={"filter"} name={"menu-outline"} size={"20"} color="primary"> </IonIcon>
+                            <IonIcon class={"filter"} name={"menu-outline"} size={"largest"} color="primary"> </IonIcon>
                         </IonCol>
                     </IonRow>
                 </IonGrid>

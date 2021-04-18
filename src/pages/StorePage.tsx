@@ -10,10 +10,10 @@ import {
     IonThumbnail,
     IonImg,
     IonToolbar,
-    IonCard, IonCardHeader, IonCardContent, IonHeader, IonIcon
+    IonCard, IonCardHeader, IonCardContent, IonHeader, IonIcon, IonButton
 } from '@ionic/react';
+import {send} from "ionicons/icons";
 import './StorePage.css';
-import {send, heart, mail, heartDislike} from "ionicons/icons";
 
 type Item = {
     src: string;
@@ -27,19 +27,19 @@ const items: Item[] = [{ src: '/assets/images/store1.jpg', text: 'One from my la
 export const StorePage: React.FC = () => (
     <IonPage>
         <IonHeader className={"ion-no-border"}>
-            <IonToolbar class={"scroll-title"}>
-                <IonTitle>Radhika's Boutique</IonTitle>
-                <IonAvatar slot="start">
+            <IonToolbar class={"store-title"}>
+                <IonAvatar slot={"start"}>
                     <img src="https://slowflowersjournal.com/wp-content/uploads/2017/04/IMG_0014-1024x1024.jpg" alt={""}/>
                 </IonAvatar>
-                <IonIcon style={{"--margin-right": "10px"}} slot="end" icon={send} color={"black"} > </IonIcon>
+                <IonTitle slot={"start"}>Radhika's Boutique</IonTitle>
+                <IonIcon slot={"end"} icon={send} color={"black"} > </IonIcon>
             </IonToolbar>
-        </IonHeader>
-        <IonContent>
             <IonItem class={"store-description"}>
                 I am a Fashion Student based in London, feel free to check out
                 some of my work below!
             </IonItem>
+        </IonHeader>
+        <IonContent>
             <IonRow>
                 <IonCol>
                     {getPostImage(items[0])}
