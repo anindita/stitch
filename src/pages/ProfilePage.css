@@ -1,14 +1,14 @@
 .profile-title {
     --background: white;
-    --padding-bottom: 10px;
-    --padding-top: 10px;
-    --padding-start: 5px;
-    --padding-end: 5px;
+    --padding-bottom: 20px;
+    --padding-top: 20px;
+    --padding-start: 20px;
+    --padding-end: 20px;
 }
 
 .profile-item {
-    --padding-bottom: 20px;
     --padding-top: 20px;
+    --padding-bottom: 20px;
     --padding-start: 20px;
     --padding-end: 20px;
 }
