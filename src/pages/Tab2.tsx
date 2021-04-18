@@ -15,7 +15,7 @@ import {
     IonAvatar,
     IonContent, IonFooter,
     IonHeader,
-    IonIcon,
+    IonIcon, IonItem,
     IonPage, IonTitle, IonToolbar,
     useIonViewWillEnter,
 } from '@ionic/react';
@@ -25,7 +25,7 @@ import Auth from './Auth';
 import './Tab2.css';
 
 import 'stream-chat-react/dist/css/index.css';
-import {flower} from "ionicons/icons";
+import {flower, send} from "ionicons/icons";
 import ReactTextareaAutocomplete from "stream-chat-react/built/types/src/components/AutoCompleteTextarea/Textarea";
 
 let chatClient: any;
@@ -90,12 +90,12 @@ function Tab2() {
     if (channel) {
         return (
             <IonPage>
-                <IonHeader>
-                    <IonToolbar class={"scroll-title"}>
-                        <IonTitle>Stitch</IonTitle>
-                        <IonAvatar slot="start">
-                            <img src="public/assets/images/demoshop.jpeg"  alt={""}/>
+                <IonHeader className={"ion-no-border"}>
+                    <IonToolbar class={"vertical-center"}>
+                        <IonAvatar slot={"start"}>
+                            <img src="https://slowflowersjournal.com/wp-content/uploads/2017/04/IMG_0014-1024x1024.jpg" alt={""}/>
                         </IonAvatar>
+                        <IonTitle slot={"start"}>Radhika's Boutique</IonTitle>
                     </IonToolbar>
                 </IonHeader>
                 <IonContent>

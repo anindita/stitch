@@ -6,3 +6,15 @@
 .str-chat__avatar--fallback {
     background-color: #2dd36f !important;
 }
+
+.vertical-center {
+    margin-top: 47px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    --background: white;
+    --min-height: 100px;
+}

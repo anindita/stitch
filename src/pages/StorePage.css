@@ -1,6 +1,6 @@
 .store-title {
+    margin-top: 20px;
     --background: white;
-    --padding-top: 20px;
     --padding-start: 20px;
     --padding-end: 20px;
 }
